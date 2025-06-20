@@ -5,19 +5,17 @@ import java.time.LocalTime;
 public class BurhanfessTP1 {
     public static void main(String[] args) {
         //Mencetak bagian Ascii art sebagai pembuka program
-        System.out.print("/------------------------------------------------------------------------------------------\\\n" + //
-                        "| ________                    ___                              __                          |\n" + //
-                        "| `MMMMMMMb.                  `MM                             69MM                         |\n" + //
-                        "|  MM    `Mb                   MM                            6M' `                         |\n" + //
-                        "|  MM     MM ___   ___ ___  __ MM  __      ___    ___  __   _MM__ ____     ____     ____   |\n" + //
-                        "|  MM    .M9 `MM    MM `MM 6MM MM 6MMb   6MMMMb   `MM 6MMb  MMMMM6MMMMb   6MMMMb\\  6MMMMb\\ |\n" + //
-                        "|  MMMMMMM(   MM    MM  MM69 \" MMM9 `Mb 8M'  `Mb   MMM9 `Mb  MM 6M'  `Mb MM'    ` MM'    ` |\n" + //
-                        "|  MM    `Mb  MM    MM  MM'    MM'   MM     ,oMM   MM'   MM  MM MM    MM YM.      YM.      |\n" + //
-                        "|  MM     MM  MM    MM  MM     MM    MM ,6MM9'MM   MM    MM  MM MMMMMMMM  YMMMMb   YMMMMb  |\n" + //
-                        "|  MM     MM  MM    MM  MM     MM    MM MM'   MM   MM    MM  MM MM            `Mb      `Mb |\n" + //
-                        "|  MM    .M9  YM.   MM  MM     MM    MM MM.  ,MM   MM    MM  MM YM            ,MM      ,MM |\n" + //
-                        "| _MMMMMMM9'   YMMM9MM__MM_   _MM_  _MM_`YMMM9'Yb._MM_  _MM__MM_ YMMMM9  MYMMMM9  MYMMMM9  |\n" + //
-                        "\\------------------------------------------------------------------------------------------/\n\n ");
+        System.out.print("##########################################################\n" + //
+                        "#                                                        #\n" + //
+                        "#                                                        #\n" + //
+                        "#  ____             _                  __                #\n" + //
+                        "# | __ ) _   _ _ __| |__   __ _ _ __  / _| ___  ___ ___  #\n" + //
+                        "# |  _ \\| | | | '__| '_ \\ / _` | '_ \\| |_ / _ \\/ __/ __| #\n" + //
+                        "# | |_) | |_| | |  | | | | (_| | | | |  _|  __/\\__ \\__ \\ #\n" + //
+                        "# |____/ \\__,_|_|  |_| |_|\\__,_|_| |_|_|  \\___||___/___/ #\n" + //
+                        "#                                                        #\n" + //
+                        "#                                                        #\n" + //
+                        "##########################################################\n\n ");
         //*********************************************************************************************************************************
         Scanner minta = new Scanner(System.in);
         int codevibe = 0;
