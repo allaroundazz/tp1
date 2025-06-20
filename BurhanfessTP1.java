@@ -20,7 +20,7 @@ public class BurhanfessTP1 {
         Scanner minta = new Scanner(System.in);
         int codevibe = 0;
 
-        System.out.println("Pilih Mode (0 == if-else, 1 = switch-mode)");
+        System.out.println("Pilih Mode (0 == if-else, 1 = switch-mode):");
         int mode = minta.nextInt();
 
         //input 1
@@ -87,11 +87,15 @@ public class BurhanfessTP1 {
                 case 5:
                     System.out.println("\n    Kamu tipe 'rahasia'. MenFess-mu jarang muncul, tapi kalau muncul bikin orang penasaran siapa yang ngirim. : via Switch-Case\n");
                     break;
-                }
-                
+                }  
             }
+            //*********************************************************************************************************************************
+            System.out.println("Masukan mode pengiriman fess (0 = sekarang, 1 = masa depan: )");
+            int modekirim = minta.nextInt();
 
-         }
+            
+
+        }
 
     }
 
