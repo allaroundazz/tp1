@@ -1,11 +1,11 @@
 import java.util.Scanner;
-import java.time.LocalDate;
-import java.time.LocalTime;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class BurhanfessTP1 {
     public static void main(String[] args) {
         //Mencetak bagian Ascii art sebagai pembuka program
-        System.out.print("##########################################################\n" + //
+        System.out.print("\n##########################################################\n" + //
                         "#                                                        #\n" + //
                         "#                                                        #\n" + //
                         "#  ____             _                  __                #\n" + //
@@ -20,37 +20,38 @@ public class BurhanfessTP1 {
         Scanner minta = new Scanner(System.in);
         int codevibe = 0;
 
-        System.out.println("Pilih Mode (0 == if-else, 1 = switch-mode):");
+        System.out.println("Pilih Mode (0 = if-else, 1 = switch-mode):");
         int mode = minta.nextInt();
 
         //input 1
-        System.out.println("Ketik 1 kalau kamu tipe orang yang tidak ingin diketahui orang lain saat mengirim menfess ");
+        System.out.println("\nKetik 1 kalau kamu tipe orang yang tidak ingin diketahui orang lain saat mengirim menfess ");
         int input1 = minta.nextInt();
         if (input1 == 1) {codevibe+=1;}
 
         //input 2
-        System.out.println("Apakah kamu tipe orang yang suka pakai kode saat ingin menyanmpaikan perasaan? ");
+        System.out.println("\nApakah kamu tipe orang yang suka pakai kode saat ingin menyanmpaikan perasaan? ");
         String input2 = minta.next();
         if (input2.equalsIgnoreCase("ya")) {
             codevibe += 2;}
 
         //input 3
-        System.out.println("Ketik 1 kalau kamu suka kirim menfess yang ambigu agar menimbulkan rasa penasaran.");
+        System.out.println("\nKetik 1 kalau kamu suka kirim menfess yang ambigu agar menimbulkan rasa penasaran.");
         int input3 = minta.nextInt();
         if (input3 == 1) {codevibe += 4;} 
 
         //input 4
-        System.out.println("Apakah kamu tipe orang yang aktif mengirim manfess penuh emosi sampi menjadi bahan obrolan? (ya) (tidak)");
+        System.out.println("\nApakah kamu tipe orang yang aktif mengirim manfess penuh emosi sampi menjadi bahan obrolan? (ya) (tidak)");
         String input4 = minta.next();
         if (input4.equalsIgnoreCase("ya")) {codevibe += 8;} 
 
         //input 5 
-        System.out.println("Ketik satu kalau kamu jarang kirim menfess, tapi sekalinya membuat langsung bikin ramai.");
+        System.out.println("\nKetik satu kalau kamu jarang kirim menfess, tapi sekalinya membuat langsung bikin ramai.");
         int input5 = minta.nextInt();
         if (input5 == 1) {codevibe += 16;}
         
+        //*********************************************************************************************************************************
         //mencetak kriteria user berdasarkan kodevibenya
-        System.out.println("Total kodevibe kamu adalah " + codevibe + " jadi: ");
+        System.out.println("\nTotal kodevibe kamu adalah " + codevibe + " jadi: ");
         if (mode == 0) {
             if (codevibe <= 5) {
                 System.out.println("\n    Kamu tipe 'pengagum diam-diam'. MenFess-mu jarang, tapi kalau muncul bikin kaget.\n");
@@ -79,10 +80,10 @@ public class BurhanfessTP1 {
                     System.out.println("\n    Kamu tipe 'suka bikin penasaran'. MenFess-mu bikin orang mikir, tapi kadang bikin bingung. : via Switch-Case\n");
                     break;
                 case 3:
-                    System.out.println("\n    Kamu tibe 'suka bikin drama'. MenFess-mu bikin orang penasaran, tapi terlalu banyak drama. : via Switch-Case\n");
+                    System.out.println("\n    Kamu tipe 'suka bikin drama'. MenFess-mu bikin orang penasaran, tapi terlalu banyak drama. : via Switch-Case\n");
                     break;
                 case 4:
-                    System.out.println("\n    Kamu tipe 'suka bikin orang mikir'.MenFess-mu bikin orang penasaran, tapi kadang bikin mereka mikir : via Switch-Case\n");
+                    System.out.println("\n    Kamu tipe 'suka bikin orang mikir'. MenFess-mu bikin orang penasaran, tapi kadang bikin mereka mikir : via Switch-Case\n");
                     break;
                 case 5:
                     System.out.println("\n    Kamu tipe 'rahasia'. MenFess-mu jarang muncul, tapi kalau muncul bikin orang penasaran siapa yang ngirim. : via Switch-Case\n");
@@ -90,13 +91,52 @@ public class BurhanfessTP1 {
                 }  
             }
             //*********************************************************************************************************************************
-            System.out.println("Masukan mode pengiriman fess (0 = sekarang, 1 = masa depan: )");
+            LocalDateTime now = LocalDateTime.now();
+            int tahun = now.getYear();
+            int bulan = now.getMonthValue();
+            int hari = now.getDayOfMonth();
+            int jam = now.getHour();
+            int menit = now.getMinute();
+            int detik = now.getSecond();
+
+            System.out.println("Masukan mode pengiriman fess (0 = sekarang, 1 = masa depan):");
             int modekirim = minta.nextInt();
 
-            
+            if (modekirim == 0) {
+                LocalDateTime sekarangbanget = LocalDateTime.of(tahun, bulan, hari, jam, menit, detik);
+                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d MMMM yyyy, 'pukul' HH:mm:ss");
+                System.out.println("\n    Fess dikirimkan sekarang pada: " + sekarangbanget.format(formatter)+ "\n");
+            }
+            if (modekirim == 1) {
+                System.out.println("Masukan jumlah detik dari sekarang hingga fess dikirim: ");
+                int detikirim = minta.nextInt();
+                
+                int hitungdetik = detikirim % 60;
+                int hitungmenit = (detikirim / 60) % 60;
+                int hitungjam = (detikirim / 3600) % 24;
+                int hitunghari = detikirim / 86400;
+                detik += hitungdetik;
+                if (detik >= 60) {
+                    detik -= 60;
+                    menit ++;
+                } menit += hitungmenit;
+                if (menit >= 60) {
+                    menit -= 60;
+                    jam ++;
+                } jam += hitungjam;
+                if( jam >= 60) {
+                    jam -= 60;
+                    hari ++;
+                } 
 
+                
+            }
         }
 
     }
+
+    
+    
+    
 
 
