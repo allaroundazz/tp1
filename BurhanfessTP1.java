@@ -20,7 +20,10 @@ public class BurhanfessTP1 {
         Scanner minta = new Scanner(System.in);
         int codevibe = 0;
 
-        System.out.println("Pilih Mode (0 = if-else, 1 = switch-mode):");
+        System.out.println("Masukan username kamu: ");
+        String uname = minta.next();
+        
+        System.out.println("\nPilih Mode (0 = if-else, 1 = switch-mode):");
         int mode = minta.nextInt();
 
         //input 1
@@ -68,7 +71,7 @@ public class BurhanfessTP1 {
             }
         }
         //*********************************************************************************************************************************
-         if (mode == 1) {
+        if (mode == 1) {
             switch (codevibe/6) {
                 case 0:
                     System.out.println("\n    Kamu tipe 'pengagum diam-diam'. MenFess-mu jarang, tapi kalau muncul bikin kaget. : via Switch-Case\n");
@@ -105,10 +108,19 @@ public class BurhanfessTP1 {
             if (modekirim == 0) {
                 LocalDateTime sekarangbanget = LocalDateTime.of(tahun, bulan, hari, jam, menit, detik);
                 DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d MMMM yyyy, 'pukul' HH:mm:ss");
+                DateTimeFormatter formatterresi = DateTimeFormatter.ofPattern("d MMMM yyyy");
                 System.out.println("\n    Fess dikirimkan sekarang pada: " + sekarangbanget.format(formatter)+ "\n");
+
+                System.out.println("\n============================");
+                System.out.println("        RESI FESS        ");
+                System.out.println("============================");
+                System.out.println("Pengirim:  " + uname + "\n");
+                System.out.println("Waktu Kirim:  " + sekarangbanget.format(formatterresi) + "\n");
+                System.out.println("Status:  Fess Terkirim");
+                System.out.println("============================");
             }
             if (modekirim == 1) {
-                System.out.println("Masukan jumlah detik dari sekarang hingga fess dikirim: ");
+                System.out.println("\nMasukan jumlah detik dari sekarang hingga fess dikirim: ");
                 int detikirim = minta.nextInt();
                 
                 int hitungdetik = detikirim % 60;
@@ -119,24 +131,51 @@ public class BurhanfessTP1 {
                 if (detik >= 60) {
                     detik -= 60;
                     menit ++;
-                } menit += hitungmenit;
+                } 
+                menit += hitungmenit;
+
                 if (menit >= 60) {
                     menit -= 60;
                     jam ++;
-                } jam += hitungjam;
+                } 
+                jam += hitungjam;
+
                 if( jam >= 60) {
                     jam -= 60;
                     hari ++;
                 } 
+                hari += hitunghari;
 
-                
+                //membuat conditional jumlah hari perbulan dan apabila ada tahun kabisat
+                int hariperbulan = 31;
+                if (bulan == 4 || bulan == 6 || bulan == 9 || bulan == 11) {
+                    hariperbulan = 30;
+                } 
+                else if (bulan == 2) {
+                    if ((tahun % 4 == 0 && tahun % 100 != 0) || tahun % 400 == 0) {hariperbulan = 29;}
+                    else {hariperbulan = 28;}
+                }
+
+                if (hari > hariperbulan) {
+                    hari -= hariperbulan;
+                    bulan++;
+                    if (bulan > 12) {
+                        bulan = 1;
+                        tahun++;
+                    }
+                }
+                LocalDateTime waktukirim = LocalDateTime.of(tahun, bulan, hari, jam, menit, detik);
+                DateTimeFormatter format = DateTimeFormatter.ofPattern("d MMMM yyyy, 'pukul' HH:mm:ss");
+                DateTimeFormatter formatresi = DateTimeFormatter.ofPattern("d MMMM yyyy");
+                System.out.println("\n    Fess akan dikirimkan pada: " + waktukirim.format(format));  
+
+                System.out.println("\n============================");
+                System.out.println("        RESI FESS        ");
+                System.out.println("============================");
+                System.out.println("Pengirim:  " + uname + "\n");
+                System.out.println("Waktu Kirim:  " + waktukirim.format(formatresi) + "\n");
+                System.out.println("Status:  Menunggu pengiriman");
+                System.out.println("============================");
             }
-        }
-
     }
-
-    
-    
-    
-
-
+}
