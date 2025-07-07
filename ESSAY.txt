@@ -1,0 +1,8 @@
+Saya mengerjakan TP3 ini kurang lebih selama 10 jam, langkah awal pengerjaan saya adalah saya mereview materi denga membaca contoh-contoh
+program. Kesulitan yang saya alami selama pengerjaan TP3 ini adalah saya sedikit kesulitan untuk memahami soal, dan saya juga kesulitan 
+dalam pembuatan unit test dikarenakan ada masalah pada laptop saya yang menyebabkan saya tidak dapat melihat coverage unit test saya.
+
+dalam pengerjaan Praktikum Lanjutan TP3 ini saya dapat mengerjakannya walaupun mengalami beberapa kesulitan terutama untuk memahami soal.
+Setelah saya memahami soal dengan baik saya baru dapat mengerjakan Praktikum Lanjutan ini dengan cukup lancar walau terkadang butuh 
+bantuan asdos. Kendala yang saya alami adalah dikarenakan saya memisah semua file di TP saya, maka saya sempat merasa bingung dalam flow
+pengerjaan.
